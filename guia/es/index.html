@@ -318,7 +318,7 @@ plan aprobado                 <span class="c"># tú escribes</span></pre>
     var F = {
       todos:function(){return true},
       gratis:function(s){return s.custo!=='pago'},
-      agente:function(s){return s.precisa_de_voce===false&&s.selo!==true&&s.custo!=='pago'},
+      agente:function(s){return s.precisa_de_voce!==true&&s.selo!==true&&s.custo!=='pago'},
       voce:function(s){return s.precisa_de_voce===true},
       semselo:function(s){return s.selo!==true},
       br:function(s){return s.mercado==='br'||s.mercado==='latam'}
