@@ -247,7 +247,7 @@ marca/captura-1.png)</span></pre></div>
 
   <div class="step"><div class="b">3</div><div>
     <h3>Cole o prompt no agente</h3>
-    <p>Abra o Claude Code na pasta do kit e cole o conteúdo de <code>agente/PROMPT-LANCAMENTO.md</code>. Ele cria <code>marca/marca.json</code>, entrevista você uma pergunta por vez e roda o <code>checa</code> até dar <code>ficha OK</code>.</p>
+    <p>Abra o Claude Code na pasta do kit (rode <code>claude</code> no terminal) e cole o trecho entre as linhas <code>---</code> de <code>agente/PROMPT-LANCAMENTO.md</code>. Ele cria <code>marca/marca.json</code>, entrevista você uma pergunta por vez e roda o <code>checa</code> até dar <code>ficha OK</code>.</p>
 <pre><span class="c"># no fim da entrevista, você escreve:</span>
 ficha aprovada</pre>
   </div></div>
@@ -318,7 +318,7 @@ plano aprovado                <span class="c"># você escreve</span></pre>
     var F = {
       todos:function(){return true},
       gratis:function(s){return s.custo!=='pago'},
-      agente:function(s){return s.precisa_de_voce===false},
+      agente:function(s){return s.precisa_de_voce===false&&s.selo!==true&&s.custo!=='pago'},
       voce:function(s){return s.precisa_de_voce===true},
       semselo:function(s){return s.selo!==true},
       br:function(s){return s.mercado==='br'||s.mercado==='latam'}

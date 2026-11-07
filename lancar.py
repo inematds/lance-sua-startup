@@ -48,7 +48,7 @@ def filtra(sites, a):
             continue
         if a.precisa_de_voce and not s.get("precisa_de_voce"):
             continue
-        if a.agente and s.get("precisa_de_voce"):
+        if a.agente and (s.get("precisa_de_voce") or s.get("selo") is True or s.get("custo") == "pago"):
             continue
         if a.mercado and s.get("mercado", "global") != a.mercado:
             continue
@@ -82,6 +82,10 @@ LIMITES = {"tagline": 60, "descricao_curta": 160, "descricao_longa": 1000}
 
 
 def le_marca(caminho):
+    if not os.path.exists(caminho):
+        sys.exit(f"ficha não encontrada: {caminho}\n"
+                 "Copie marca/marca.modelo.json para marca/marca.json e preencha (ou deixe o agente fazer), "
+                 "ou teste com --marca exemplo/marca.json")
     with open(caminho, encoding="utf-8") as f:
         return json.load(f)
 
@@ -298,7 +302,7 @@ def main():
     l.add_argument("--gratis", action="store_true", help="tira os só-pagos")
     l.add_argument("--sem-selo", action="store_true", help="tira os que exigem selo")
     l.add_argument("--precisa-de-voce", action="store_true", help="só os que exigem você")
-    l.add_argument("--agente", action="store_true", help="só os que o agente faz sozinho")
+    l.add_argument("--agente", action="store_true", help="grátis, sem selo e sem precisar de você (grupo A)")
     l.add_argument("--mercado", choices=["global", "br", "latam"])
     l.add_argument("--categoria")
     l.add_argument("--json", action="store_true")
