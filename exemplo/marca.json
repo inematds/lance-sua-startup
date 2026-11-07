@@ -1,0 +1,33 @@
+{
+  "nome": "Agente Blindado",
+  "url": "https://inematds.github.io/agente-blindado/guia/",
+  "email_cadastro": "lancamento@exemplo.com",
+  "tagline": "5 travas contra injeção de prompt no seu agente",
+  "descricao_curta": "Kit gratuito que protege agentes de IA contra ordens escondidas em e-mails, páginas e PDFs, com 5 travas e um banco de 10 ataques.",
+  "descricao_longa": "O Agente Blindado é um kit gratuito para quem usa agentes de IA com acesso a arquivos, e-mail ou sistemas. Ele protege contra a injeção de prompt: um texto de fora com uma ordem escondida que o agente obedece. Em vez de confiar só no prompt, traz 5 travas que funcionam fora dele, um instalador para o Claude Code e um banco de 10 ataques inofensivos para medir o seu agente.",
+  "categoria": "segurança",
+  "tags": ["segurança", "agentes de IA", "injeção de prompt", "código aberto"],
+  "preco": "gratis",
+  "preco_detalhe": "100% grátis, código aberto",
+  "fundador_nome": "INEMA",
+  "fundador_link": "https://inema.club",
+  "pais": "Brasil",
+  "ano_fundacao": "2026",
+  "idioma": "pt",
+  "logo_quadrado": "logo-512.png",
+  "logo_horizontal": "",
+  "capturas": ["captura-1.png"],
+  "video_demo": "",
+  "redes": { "x": "", "linkedin": "", "github": "https://github.com/inematds/agente-blindado", "instagram": "" },
+  "numeros": [
+    { "numero": "5 travas", "fonte": "pasta travas/ do repositório" },
+    { "numero": "10 ataques no banco de testes", "fonte": "teste/banco.py" }
+  ],
+  "en": {
+    "tagline": "5 locks against prompt injection in your agent",
+    "descricao_curta": "Free kit that protects AI agents from orders hidden in emails, pages and PDFs, with 5 locks and a bank of 10 attacks.",
+    "descricao_longa": "Agente Blindado is a free kit for anyone running AI agents with access to files, email or systems. It protects against prompt injection: outside text carrying a hidden order the agent obeys. Instead of trusting the prompt alone, it ships 5 locks that work outside it, an installer for Claude Code and a bank of 10 harmless attacks to score your own agent."
+  },
+  "orcamento_usd": 0,
+  "aceita_selo": false
+}

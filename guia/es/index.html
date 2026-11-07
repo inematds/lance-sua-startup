@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lance sua Startup — tu producto en 50+ sitios de lanzamiento</title>
+<meta name="description" content="Kit gratis: lista verificada de sitios de lanzamiento y directorios, plan por fuerza y un prompt para que tu agente de IA llene los formularios. Tú solo apruebas.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/lance-sua-startup/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/lance-sua-startup/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/lance-sua-startup/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;height:auto;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
+  /* tabla de sitios */
+  .filtros{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+  .filtros button{background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:.4em .9em;font:600 .82rem Sora,sans-serif;cursor:pointer}
+  .filtros button.on{background:var(--amb);color:#1a1206;border-color:var(--amb)}
+  .contagem{color:var(--mut);font-size:.88rem;margin:0 0 10px}
+  .tabela{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  .tabela table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:620px}
+  .tabela th,.tabela td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+  .tabela th{background:var(--bg2);font-family:Sora;font-size:.78rem;letter-spacing:.04em;color:var(--mut)}
+  .tabela tr:last-child td{border-bottom:none}
+  .tag{display:inline-block;border-radius:6px;padding:.1em .5em;font-size:.76rem;font-weight:600}
+  .t-alta{background:rgba(226,162,59,.18);color:var(--amb)} .t-media{background:rgba(56,189,248,.12);color:var(--sky)} .t-baixa{background:var(--bg2);color:var(--mut)}
+  .grupos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:820px){.grupos{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.grupos{grid-template-columns:1fr}}
+  .grupos .card b{font-family:Sora;font-size:1.6rem;color:var(--amb);display:block}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🚀</span> Lance sua Startup</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">Qué es</a>
+    <a class="sec" href="#sites">Los sitios</a>
+    <a class="sec" href="#guia">Guía de uso</a>
+    <a class="sec" href="#regras">Reglas</a>
+    <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/lance-sua-startup" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Kit de lanzamiento · gratis</span>
+      <h1>Tu startup en 56 sitios, sin semanas de <span class="amb">formularios</span></h1>
+      <p class="lead">Una lista investigada de sitios de lanzamiento y directorios, un plan que empieza por los más fuertes y gratis, y un prompt para que tu agente llene los formularios mientras tú apruebas. Con presupuesto cero, hace unos 20 solo y te dice qué hacer en los demás.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Empezar la guía</a>
+        <a class="btn ghost" href="https://github.com/inematds/lance-sua-startup" target="_blank" rel="noopener">Ver en GitHub</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-es.jpg" alt="Banner: Lance sua Startup — sitios de lanzamiento con un agente que llena todo por ti"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">En resumen</span>
+  <p>Lance sua Startup es un kit gratuito para quien creó una app, un sitio web o un SaaS y quiere que aparezca en internet. Reúne 56 sitios de lanzamiento y directorios (como Product Hunt, G2 y directorios de IA), que traen visitas y enlaces de vuelta a tu sitio, los llamados <em>backlinks</em>, que ayudan en Google. Un script arma el plan en el orden correcto y guarda el avance, y un prompt listo hace que tu agente de IA llene los formularios por ti. Para usarlo: Python 3, Claude Code con la extensión de Chrome y un correo solo para los registros.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">Qué es</span>
+  <h2>Tres piezas que trabajan juntas</h2>
+  <p class="sub">La lista dice a dónde ir, el script dice en qué orden y el agente hace el trabajo aburrido. Tú solo apareces donde eres insustituible.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Banner con las seis etapas: sitios, ficha de la marca, plan por fuerza, el agente llena, rastreador, tú apruebas" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="grid g3">
+    <div class="card"><h3>🗺️ 56 sitios investigados</h3><p>Cada sitio con enlace de envío, fuerza estimada, costo (gratis o pago), si exige un sello en tu sitio y si te necesita a ti. Incluye 3 sitios para el público brasileño.</p></div>
+    <div class="card"><h3>📋 Plan y rastreador</h3><p><code>lancar.py</code> lee la ficha de tu marca, separa los sitios en 4 grupos y crea una hoja de cálculo (CSV) con el estado de cada uno.</p></div>
+    <div class="card"><h3>🤖 Prompt para el agente</h3><p>Te entrevista, arma la ficha solo con números reales, te muestra el plan y llena sitio por sitio. Se detiene en todo lo que cuesta dinero o toca tu sitio.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Cómo funciona</span>
+  <h2>De la ficha al enlace publicado</h2>
+  <p class="sub">Dos puntos de aprobación antes de cualquier envío. Nada sale sin tu sí.</p>
+  <div class="flow">
+    <span>Entrevista</span><span class="arr">→</span><span>Ficha de la marca</span><span class="arr">→</span><span>✋ ficha aprobada</span><span class="arr">→</span><span>Plan en 4 grupos</span><span class="arr">→</span><span>✋ plan aprobado</span><span class="arr">→</span><span>El agente envía</span><span class="arr">→</span><span>Rastreador</span><span class="arr">→</span><span>Verifica que esté publicado</span>
+  </div>
+  <div class="grupos" style="margin-top:26px">
+    <div class="card"><b>A</b><h3>Lo hace el agente</h3><p>Gratis, sin sello y sin necesitarte. El agente llena solo, del más fuerte al más débil.</p></div>
+    <div class="card"><b>B</b><h3>Pide tu sí</h3><p>Pide un sello en tu sitio o es pago (dentro de tu presupuesto). El agente muestra el costo y espera.</p></div>
+    <div class="card"><b>C</b><h3>Tu turno</h3><p>Lanzamientos con día fijo y comunidad (Product Hunt, Hacker News y similares). Tú lo haces; el kit te dice qué.</p></div>
+    <div class="card"><b>D</b><h3>Fuera del plan</h3><p>Solo pago y no tienes presupuesto, o pide sello y dijiste que no.</p></div>
+  </div>
+</div></section>
+
+<section id="sites"><div class="wrap">
+  <span class="chip">Los sitios</span>
+  <h2>La lista, con filtros</h2>
+  <p class="sub">Ordenada por fuerza estimada del sitio (alta, media, baja). La fuerza es una estimación por tamaño y reputación del sitio, no un número oficial: un enlace que viene de un sitio fuerte pesa más para Google. 44 de los 56 se abrieron y verificaron el 07/11/2026; 12 bloquearon la lectura automática y salieron de fuentes públicas (el campo <code>conferido_em</code> en <code>sites/sites.json</code> dice cuáles). Precios y reglas cambian: el agente verifica en el momento.</p>
+  <div class="filtros" id="filtros">
+    <button data-f="todos" class="on">Todos</button>
+    <button data-f="gratis">Tiene opción gratis</button>
+    <button data-f="agente">Sin necesitarte</button>
+    <button data-f="voce">Te necesita</button>
+    <button data-f="semselo">Sin sello</button>
+    <button data-f="br">Brasil</button>
+  </div>
+  <p class="contagem" id="contagem"></p>
+  <p class="contagem">En el celular, desliza la tabla hacia el lado para ver costo, sello y quién lo hace. El <strong>sello</strong> es un pequeño emblema con enlace del directorio que algunos sitios te piden poner en tu sitio a cambio del listado. Los 3 sitios de Brasil te necesitan (son comunidades o registro de empresas).</p>
+  <div class="tabela"><table>
+    <thead><tr><th>#</th><th>Sitio</th><th>Fuerza</th><th>Costo</th><th>Sello en tu sitio</th><th>Te necesita</th><th>Tipo</th></tr></thead>
+    <tbody id="corpo"></tbody>
+  </table></div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Antes de empezar</span>
+  <h2>Lo que necesitas</h2>
+  <p class="sub">Nada pago. Solo herramientas que probablemente ya tienes.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Python 3 y el kit</h3><p>Para el script del plan. Funciona en Linux, Mac y Windows.</p><pre><span class="k">git clone</span> https://github.com/inematds/lance-sua-startup
+<span class="k">cd</span> lance-sua-startup
+<span class="k">python3</span> lancar.py lista</pre></div>
+    <div class="card"><h3>Claude Code + Chrome</h3><p>El agente es <strong>Claude Code</strong> (necesita un plan pago de Claude). Controla tu navegador con la extensión <strong>Claude in Chrome</strong>: instálala desde la Chrome Web Store, inicia sesión y, dentro de Claude Code, ejecuta <code>/chrome</code> para conectarla.</p><pre><span class="c"># instalar (Linux/Mac)</span>
+<span class="k">curl</span> -fsSL https://claude.ai/install.sh | bash
+<span class="c"># abrir en la carpeta del kit</span>
+<span class="k">cd</span> lance-sua-startup &amp;&amp; <span class="k">claude</span></pre></div>
+    <div class="card"><h3>Correo solo para registros</h3><p>Crea una casilla como <code>lancamento@suamarca.com</code> y déjala abierta en una pestaña. Ahí llegan los enlaces de confirmación.</p><pre><span class="c">Logo 512×512 y 1 a 3 capturas
+de pantalla dentro de la carpeta marca/
+(ej.: marca/logo-512.png y
+marca/captura-1.png)</span></pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guía de uso</span>
+  <h2>Paso a paso</h2>
+  <p class="sub">Los comandos se ejecutan en la carpeta del kit. El ejemplo usa la ficha lista en <code>exemplo/</code>, para que veas el resultado antes de llenar la tuya.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Mira la lista y los filtros</h3>
+    <p>Lista solo los sitios que el agente hace solo, o solo los gratis, o solo los de Brasil.</p>
+<pre><span class="k">python3</span> lancar.py lista --agente --gratis
+<span class="k">python3</span> lancar.py lista --mercado br</pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Prueba con la ficha de ejemplo</h3>
+    <p>La ficha de ejemplo es de un proyecto real de INEMA. El script revisa la ficha y arma el plan en una carpeta de prueba.</p>
+<pre><span class="k">python3</span> lancar.py checa --marca exemplo/marca.json
+<span class="k">python3</span> lancar.py plano --marca exemplo/marca.json --saida exemplo/trabalho
+<span class="c"># abre exemplo/trabalho/plano.md y exemplo/trabalho/rastreador.csv</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Pega el prompt en el agente</h3>
+    <p>Abre Claude Code en la carpeta del kit y pega el contenido de <code>agente/PROMPT-LANCAMENTO.es.md</code>. Crea <code>marca/marca.json</code>, te entrevista una pregunta a la vez y ejecuta <code>checa</code> hasta que dé <code>ficha OK</code>.</p>
+<pre><span class="c"># al final de la entrevista, tú escribes:</span>
+ficha aprobada</pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Aprueba el plan</h3>
+    <p>El agente ejecuta el plan y muestra cuántos sitios cayeron en cada grupo. Con presupuesto 0 y sin sello (como en la ficha de ejemplo), el resultado hoy es: <strong>20</strong> los hace el agente solo, <strong>22</strong> son tu turno y <strong>14</strong> quedan fuera.</p>
+<pre><span class="k">python3</span> lancar.py plano      <span class="c"># lo ejecuta el agente; usa marca/marca.json</span>
+plan aprobado                 <span class="c"># tú escribes</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>El agente envía, sitio por sitio</h3>
+    <p>Para cada sitio del grupo A: abre el enlace, crea la cuenta con el correo de registro, llena con la ficha, confirma el correo y lo anota en el rastreador. No necesitas escribir estos comandos: los ejecuta el agente, después del plan real (<code>trabalho/</code>).</p>
+<pre><span class="c"># lo ejecuta el agente, después de cada sitio:</span>
+<span class="k">python3</span> lancar.py marca pitchwall enviado --nota <span class="s">"registro gratis"</span>
+<span class="k">python3</span> lancar.py status</pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Tu parte y la verificación</h3>
+    <p><code>status</code> lista los sitios marcados como tu turno (<code>sua-vez</code>). En 1 a 2 semanas, <code>confere</code> abre cada listado y busca tu dominio; si lo encuentra, lo marca como publicado (<code>no-ar</code>).</p>
+<pre><span class="k">python3</span> lancar.py status
+<span class="k">python3</span> lancar.py confere</pre>
+  </div></div>
+</div></section>
+
+<section id="regras"><div class="wrap">
+  <span class="chip">Reglas del agente</span>
+  <h2>Lo que nunca hace sin ti</h2>
+  <p class="sub">Está escrito en el prompt y en el plan. Si aparece cualquier punto de abajo, el agente marca el sitio como tu turno y pasa al siguiente.</p>
+  <div class="grid g3">
+    <div class="card"><h3>💸 Pagar</h3><p>Ningún cobro, plan, "boost" o fila paga, ni de US$ 1, sin tu sí para ese sitio.</p></div>
+    <div class="card"><h3>🏷️ Tocar tu sitio</h3><p>Sello, badge o enlace de vuelta solo entran con tu sí, sitio por sitio.</p></div>
+    <div class="card"><h3>🔢 Inventar</h3><p>Solo textos y números de la ficha. <code>checa</code> rechaza los números sin fuente.</p></div>
+    <div class="card"><h3>🧩 Captcha y verificación</h3><p>Captcha, teléfono, documento o video: se detiene y te llama.</p></div>
+    <div class="card"><h3>🗣️ Hablar por ti</h3><p>Nada de publicar en comunidades con tu cuenta personal. Product Hunt y Hacker News son tuyos.</p></div>
+    <div class="card"><h3>🔁 Repetir</h3><p>Un envío por sitio. El rastreador guarda lo que ya se hizo, aunque te detengas a la mitad.</p></div>
+  </div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Python 3</div><div class="pill">Claude Code</div><div class="pill">Claude in Chrome</div>
+    <p style="margin-top:18px">Lance sua Startup · kit gratuito ·
+      <a href="https://github.com/inematds/lance-sua-startup">inematds/lance-sua-startup</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='lance-sua-startup-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+  (function(){
+    var SITES = /*SITES*/[{"nome": "AlternativeTo", "url": "https://alternativeto.net", "url_envio": "https://alternativeto.net/manage-item/", "categoria": "diretorio-saas", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "BetaList", "url": "https://betalist.com", "url_envio": "https://betalist.com/submit", "categoria": "lancamento", "forca": "alta", "custo": "pago", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Capterra", "url": "https://www.capterra.com/", "url_envio": "https://www.capterra.com/vendors/sign-up", "categoria": "avaliacoes", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Crunchbase", "url": "https://www.crunchbase.com/", "url_envio": "https://www.crunchbase.com/register", "categoria": "perfil-empresa", "forca": "alta", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "DEV Community (#braziliandevs)", "url": "https://dev.to/t/braziliandevs", "url_envio": "https://dev.to/new", "categoria": "dev", "forca": "alta", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "br"}, {"nome": "Futurepedia", "url": "https://www.futurepedia.io", "url_envio": "https://www.futurepedia.io", "categoria": "diretorio-ia", "forca": "alta", "custo": "pago", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "FutureTools", "url": "https://www.futuretools.io/", "url_envio": "https://www.futuretools.io/submit-a-tool", "categoria": "diretorio-ia", "forca": "alta", "custo": "gratis", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "G2", "url": "https://www.g2.com/", "url_envio": "https://sell.g2.com/create-a-profile", "categoria": "avaliacoes", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "GetApp", "url": "https://www.getapp.com/", "url_envio": "https://www.getapp.com/", "categoria": "avaliacoes", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "GitHub (vitrine do repositório)", "url": "https://github.com", "url_envio": "https://github.com/new", "categoria": "dev", "forca": "alta", "custo": "gratis", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Hacker News (Show HN)", "url": "https://news.ycombinator.com", "url_envio": "https://news.ycombinator.com/submit", "categoria": "comunidade", "forca": "alta", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Hashnode", "url": "https://hashnode.com", "url_envio": "https://hashnode.com/onboard", "categoria": "dev", "forca": "alta", "custo": "gratis", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Indie Hackers", "url": "https://www.indiehackers.com", "url_envio": "https://www.indiehackers.com/products/new", "categoria": "comunidade", "forca": "alta", "custo": "gratis", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Product Hunt", "url": "https://www.producthunt.com/", "url_envio": "https://www.producthunt.com/posts/new", "categoria": "lancamento", "forca": "alta", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Reddit r/SideProject", "url": "https://www.reddit.com/r/SideProject/", "url_envio": "https://www.reddit.com/r/SideProject/submit", "categoria": "comunidade", "forca": "alta", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "SaaSHub", "url": "https://www.saashub.com", "url_envio": "https://www.saashub.com/services/submit", "categoria": "diretorio-saas", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Slashdot", "url": "https://slashdot.org/", "url_envio": "https://slashdot.org/software/", "categoria": "diretorio-saas", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "SourceForge", "url": "https://sourceforge.net/", "url_envio": "https://sourceforge.net/software/vendors/", "categoria": "diretorio-saas", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "There Is An AI For That", "url": "https://theresanaiforthat.com", "url_envio": "https://theresanaiforthat.com/launch/", "categoria": "diretorio-ia", "forca": "alta", "custo": "pago", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Toolify", "url": "https://www.toolify.ai/", "url_envio": "https://www.toolify.ai/submit", "categoria": "diretorio-ia", "forca": "alta", "custo": "pago", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "TrustRadius", "url": "https://www.trustradius.com/", "url_envio": "https://www.trustradius.com/resources/claim-your-profile", "categoria": "avaliacoes", "forca": "alta", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Aura Plus Plus", "url": "https://auraplusplus.com", "url_envio": "https://auraplusplus.com/projects/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Better Launch", "url": "https://www.betterlaunch.co/", "url_envio": "https://betterlaunch.co/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "DevHunt", "url": "https://devhunt.org/", "url_envio": "https://devhunt.org/login", "categoria": "dev", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Fazier", "url": "https://fazier.com", "url_envio": "https://fazier.com/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": true, "precisa_de_voce": false, "mercado": "global"}, {"nome": "FoundrList", "url": "https://foundrlist.com", "url_envio": "https://foundrlist.com/pricing", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "GeekNews (Show GN)", "url": "https://news.hada.io", "url_envio": "https://news.hada.io/show", "categoria": "comunidade", "forca": "media", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Launch Llama", "url": "https://tools.launchllama.co/", "url_envio": "https://tools.launchllama.co/submit", "categoria": "diretorio-saas", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": true, "precisa_de_voce": false, "mercado": "global"}, {"nome": "LaunchIgniter", "url": "https://launchigniter.com", "url_envio": "https://launchigniter.com/pricing", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": true, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Launching Next", "url": "https://www.launchingnext.com", "url_envio": "https://www.launchingnext.com/submit/", "categoria": "diretorio-saas", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Microlaunch", "url": "https://microlaunch.net", "url_envio": "https://microlaunch.net/submit", "categoria": "lancamento", "forca": "media", "custo": "pago", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Peerlist Launchpad", "url": "https://peerlist.io", "url_envio": "https://peerlist.io/launchpad", "categoria": "lancamento", "forca": "media", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "PeerPush", "url": "https://peerpush.net", "url_envio": "https://peerpush.net/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "PitchWall", "url": "https://pitchwall.co/", "url_envio": "https://pitchwall.co/product/submit?plan=free", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "SaaSCity", "url": "https://saascity.io/", "url_envio": "https://saascity.io/saascity?submit=1", "categoria": "diretorio-saas", "forca": "media", "custo": "pago", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Startup Fame", "url": "https://startupfa.me/", "url_envio": "https://startupfa.me/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Startup Stash", "url": "https://startupstash.com", "url_envio": "https://startupstash.com/add-listing/", "categoria": "diretorio-saas", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "StartupBase", "url": "https://startupbase.io", "url_envio": "https://startupbase.io/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": true, "precisa_de_voce": true, "mercado": "global"}, {"nome": "StartupBase Brasil (Abstartups)", "url": "https://startupbase.com.br", "url_envio": "https://startupbase.com.br/auth/register", "categoria": "perfil-empresa", "forca": "media", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "br"}, {"nome": "TabNews", "url": "https://www.tabnews.com.br", "url_envio": "https://www.tabnews.com.br/publicar", "categoria": "comunidade", "forca": "media", "custo": "gratis", "selo": false, "precisa_de_voce": true, "mercado": "br"}, {"nome": "Tiny Startups", "url": "https://www.tinystartups.com/", "url_envio": "https://www.tinystartups.com/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "TinyLaunch", "url": "https://www.tinylaunch.com", "url_envio": "https://www.tinylaunch.com/submit", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "Uneed", "url": "https://www.uneed.best", "url_envio": "https://www.uneed.best/submit-a-tool", "categoria": "lancamento", "forca": "media", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": true, "mercado": "global"}, {"nome": "500 Tools", "url": "https://500.tools", "url_envio": "https://500.tools/submit", "categoria": "diretorio-saas", "forca": "baixa", "custo": "pago", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "AI Directories", "url": "https://aidirectori.es/", "url_envio": "https://aidirectori.es/submit-ai-tool", "categoria": "diretorio-ia", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "AllThingsAI", "url": "https://allthingsai.work", "url_envio": "https://allthingsai.work/directory/submit/", "categoria": "diretorio-ia", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "ConfettiSaaS", "url": "https://confettisaas.com", "url_envio": "https://confettisaas.com/submit", "categoria": "diretorio-saas", "forca": "baixa", "custo": "gratis", "selo": true, "precisa_de_voce": false, "mercado": "global"}, {"nome": "DupeStack", "url": "https://dupestack.com", "url_envio": "https://dupestack.com/submit", "categoria": "diretorio-ia", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Nick Launches", "url": "https://nicklaunches.com", "url_envio": "https://nicklaunches.com/submit/", "categoria": "lancamento", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": true, "precisa_de_voce": true, "mercado": "global"}, {"nome": "RankInPublic", "url": "https://rankinpublic.xyz", "url_envio": "https://rankinpublic.xyz/auth?mode=signin", "categoria": "lancamento", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "ScrollLaunch", "url": "https://scrolllaunch.com/", "url_envio": "https://scrolllaunch.com/dashboard/products/new", "categoria": "lancamento", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Shipybara", "url": "https://shipybara.com", "url_envio": "https://shipybara.com", "categoria": "lancamento", "forca": "baixa", "custo": "gratis", "selo": null, "precisa_de_voce": true, "mercado": "global"}, {"nome": "SideProjectors", "url": "https://www.sideprojectors.com", "url_envio": "https://www.sideprojectors.com/project/new", "categoria": "comunidade", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": null, "precisa_de_voce": false, "mercado": "global"}, {"nome": "The Tool Directory", "url": "https://thetooldirectory.com", "url_envio": "https://thetooldirectory.com/submit-a-tool/", "categoria": "diretorio-saas", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "ToolScout", "url": "https://toolscout.ai", "url_envio": "https://toolscout.ai/submit", "categoria": "diretorio-ia", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": false, "precisa_de_voce": false, "mercado": "global"}, {"nome": "Twelve Tools", "url": "https://twelve.tools/", "url_envio": "https://twelve.tools/submit-your-tool", "categoria": "diretorio-saas", "forca": "baixa", "custo": "gratis-com-opcao-paga", "selo": true, "precisa_de_voce": false, "mercado": "global"}]/*FIM*/;
+    var T = {alta:'alta',media:'media',baixa:'baja',
+      gratis:'gratis','gratis-com-opcao-paga':'gratis + pago',pago:'pago',
+      sim:'sí',nao:'no',talvez:'verificar', n:'sitios',
+      cat:{avaliacoes:'reseñas',lancamento:'lanzamiento','diretorio-ia':'directorio de IA','diretorio-saas':'directorio SaaS',comunidade:'comunidad','perfil-empresa':'perfil de empresa',dev:'dev'}};
+    var F = {
+      todos:function(){return true},
+      gratis:function(s){return s.custo!=='pago'},
+      agente:function(s){return s.precisa_de_voce===false},
+      voce:function(s){return s.precisa_de_voce===true},
+      semselo:function(s){return s.selo!==true},
+      br:function(s){return s.mercado==='br'||s.mercado==='latam'}
+    };
+    function sn(v){return v===true?T.sim:v===false?T.nao:T.talvez}
+    function esc(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+    var corpo=document.getElementById('corpo'), cont=document.getElementById('contagem');
+    function desenha(f){
+      var l=SITES.filter(F[f]);
+      cont.textContent=l.length+' '+T.n;
+      corpo.innerHTML=l.map(function(s,i){
+        return '<tr><td>'+(i+1)+'</td><td><a href="'+esc(s.url_envio||s.url)+'" target="_blank" rel="noopener nofollow">'+esc(s.nome)+'</a></td>'+
+          '<td><span class="tag t-'+esc(s.forca)+'">'+esc(T[s.forca]||s.forca)+'</span></td>'+
+          '<td>'+esc(T[s.custo]||s.custo)+'</td><td>'+sn(s.selo)+'</td><td>'+sn(s.precisa_de_voce)+'</td>'+
+          '<td>'+esc(T.cat[s.categoria]||s.categoria)+'</td></tr>';
+      }).join('');
+    }
+    document.getElementById('filtros').addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      [].forEach.call(this.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});
+      desenha(b.dataset.f);
+    });
+    desenha('todos');
+  })();
+</script>
+</body>
+</html>

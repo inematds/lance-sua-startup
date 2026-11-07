@@ -1,0 +1,6 @@
+__pycache__/
+# dados pessoais do seu lançamento (ficha, logo, plano e rastreador) ficam fora do git
+marca/*
+!marca/marca.modelo.json
+trabalho/
+exemplo/trabalho/
