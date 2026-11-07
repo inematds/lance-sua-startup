@@ -1,0 +1,50 @@
+[
+ {
+  "nome": "Wellfound",
+  "url": "https://wellfound.com",
+  "url_envio": "https://wellfound.com/onboarding/recruit",
+  "categoria": "perfil-empresa",
+  "forca": "alta",
+  "custo": "gratis-com-opcao-paga",
+  "custo_obs": "Wellfound Jobs $0 forever (vagas ilimitadas, ATS próprio); pagos opcionais: promover vaga, Wellfound Reach (sourcing com IA) e Autopilot (recrutador dedicado).",
+  "selo": false,
+  "precisa_de_voce": true,
+  "precisa_de_voce_obs": "O perfil da startup nasce da conta de recrutador em nome do fundador (nome, cargo, empresa); a etapa de verificação da empresa não foi conferida.",
+  "link_dofollow": null,
+  "obs": "Antigo AngelList Talent: o perfil de empresa entra junto com a 1ª vaga. Vale publicar ao menos uma vaga (até de estágio/cofundador) para o perfil aparecer em Startup Jobs.",
+  "mercado": "global",
+  "conferido_em": "2026-11-07"
+ },
+ {
+  "nome": "ProjectRadar",
+  "url": "https://getprojectradar.com",
+  "url_envio": "https://getprojectradar.com/submit",
+  "categoria": "diretorio-saas",
+  "forca": "baixa",
+  "custo": "gratis",
+  "custo_obs": "Envio grátis; publicação não garantida (seleção editorial, pagamento não influencia). Opcional pago à parte: relatório privado 'Fresh Eyes', que não muda a decisão.",
+  "selo": false,
+  "precisa_de_voce": false,
+  "precisa_de_voce_obs": "Formulário simples: nome, URL pública, para que serve, categoria, estágio, logo opcional e e-mail; um agente preenche.",
+  "link_dofollow": null,
+  "obs": "Curadoria de projetos independentes: se aprovado, ganha perfil + 'Project Note' com link para o site oficial. O site avisa que não promete backlink nem tráfego. Precisa de página pública, repo ou listagem.",
+  "mercado": "global",
+  "conferido_em": "2026-11-07"
+ },
+ {
+  "nome": "What Launched Today",
+  "url": "https://whatlaunched.today",
+  "url_envio": null,
+  "categoria": "lancamento",
+  "forca": "baixa",
+  "custo": "gratis-com-opcao-paga",
+  "custo_obs": "não conferido (site não abriu em 07/11); confira o preço na hora",
+  "selo": null,
+  "precisa_de_voce": null,
+  "precisa_de_voce_obs": "conferir — o site não abriu (timeout em 07/11/2026).",
+  "link_dofollow": null,
+  "obs": "Existe (press release de 14/02/2026: 1.300+ produtos; promete redistribuir o envio para outros diretórios). Abrir o site e confirmar envio e preço antes de usar.",
+  "mercado": "global",
+  "conferido_em": "nao-conferido"
+ }
+]

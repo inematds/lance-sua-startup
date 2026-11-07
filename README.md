@@ -1,4 +1,4 @@
-# Lance sua Startup — seu produto em 56 sites de lançamento
+# Lance sua Startup — seu produto em 59 sites de lançamento
 
 [![Lance sua Startup](guia/assets/banner.jpg)](https://inematds.github.io/lance-sua-startup/guia/)
 
@@ -7,7 +7,7 @@
 ## O que é
 
 Lance sua Startup é um kit gratuito para quem criou um app, site ou SaaS e quer que ele apareça na internet. Ele reúne
-56 sites de lançamento e diretórios (como Product Hunt, G2 e diretórios de IA), que dão visitas e links de volta
+59 sites de lançamento e diretórios (como Product Hunt, G2 e diretórios de IA), que dão visitas e links de volta
 para o seu site, os chamados *backlinks*, que ajudam no Google. Um script monta o plano na ordem certa e guarda o
 andamento, e um prompt pronto faz o seu agente de IA preencher os formulários por você. Para usar: Python 3, o Claude
 Code com a extensão do Chrome e um e-mail só para os cadastros.
@@ -20,7 +20,7 @@ Guia completo (landing + passo a passo + tabela com filtros): **https://inematds
 
 | Arquivo | O que faz |
 |---|---|
-| `sites/sites.json` · `sites/sites.csv` | os 56 sites: link de envio, força estimada, custo, selo, se precisa de você, dicas |
+| `sites/sites.json` · `sites/sites.csv` | os 59 sites: link de envio, força estimada, custo, selo, se precisa de você, dicas |
 | `lancar.py` | `lista` (filtros), `checa` (ficha), `plano` (4 grupos + rastreador), `marca`, `status`, `confere` |
 | `agente/PROMPT-LANCAMENTO.md` | o prompt para colar no agente: entrevista → ficha → plano → envio, com 2 portões de aprovação |
 | `marca/marca.modelo.json` | modelo da ficha da marca (textos, logo, números com fonte, orçamento, aceita selo) |
@@ -32,7 +32,7 @@ Preços e regras dos sites mudam: o campo `conferido_em` diz quando cada um foi 
 
 ## Os 4 grupos do plano
 
-Com orçamento 0 e sem selo (a ficha de exemplo), o plano hoje fica: **A = 20 · B = 0 · C = 22 · D = 14**.
+Com orçamento 0 e sem selo (a ficha de exemplo), o plano hoje fica: **A = 22 · B = 0 · C = 23 · D = 14**.
 
 | Grupo | O que entra | Quem faz |
 |---|---|---|
@@ -53,11 +53,11 @@ Com orçamento 0 e sem selo (a ficha de exemplo), o plano hoje fica: **A = 20 ·
 | 5 | Colar o prompt no agente (na pasta do kit) | conteúdo de `agente/PROMPT-LANCAMENTO.md` | 🤖 agente |
 | 6 | Entrevista e ficha da marca até `ficha OK` | `python3 lancar.py checa` | 🤖 agente + 🧠 você |
 | 7 | Portão 1 | você escreve `ficha aprovada` | 🧠 você |
-| 8 | Plano em 4 grupos + rastreador | `python3 lancar.py plano` | 🤖 agente |
+| 8 | Plano em 4 grupos + rastreador; procura se já está listado | `python3 lancar.py plano` · `marca <id> ja-listado` | 🤖 agente |
 | 9 | Portão 2 | você escreve `plano aprovado` | 🧠 você |
-| 10 | Envio site por site (grupo A) | `python3 lancar.py marca <id> enviado` | 🤖 agente |
+| 10 | Envio site por site (grupo A), com comprovante | `python3 lancar.py marca <id> enviado --comprovante "..."` | 🤖 agente |
 | 11 | Grupo B: custo ou selo, um por um | você escreve `sim <id>` ou `não <id>` | 🧠 você |
-| 12 | Grupo C: lançamentos que são seus | `python3 lancar.py status` | 🧠 você |
+| 12 | Grupo C: o agente deixa o texto em `trabalho/rascunhos/<id>.md`, você publica | `python3 lancar.py status` | 🤖 agente + 🧠 você |
 | 13 | Em 1 a 2 semanas: quais listagens estão no ar | `python3 lancar.py confere` | ⚙️ script |
 
 ## Regras do agente

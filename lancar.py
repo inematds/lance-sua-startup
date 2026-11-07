@@ -17,8 +17,9 @@ import argparse, csv, datetime, json, os, re, sys, urllib.request, urllib.parse
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SITES = os.path.join(RAIZ, "sites", "sites.json")
 FORCA = {"alta": 0, "media": 1, "baixa": 2}
-STATUS = ["pendente", "enviado", "aguardando-email", "no-ar", "recusado", "pulado", "sua-vez"]
-CAMPOS_CSV = ["id", "nome", "grupo", "forca", "custo", "url_envio", "status", "link_listagem", "data", "nota"]
+STATUS = ["pendente", "ja-listado", "enviado", "aguardando-email", "no-ar", "recusado", "pulado", "sua-vez"]
+CAMPOS_CSV = ["id", "nome", "grupo", "forca", "custo", "url_envio", "status", "link_listagem", "comprovante",
+              "data", "nota"]
 GRUPOS = {
     "A": "Agente faz (grátis, sem você)",
     "B": "Pede o seu sim (selo ou pago)",
@@ -124,8 +125,13 @@ def checa_marca(m, base):
     for p in m.get("capturas") or []:
         if not p.startswith("http") and not os.path.exists(os.path.join(base, p)):
             avisos.append(f"captura não encontrada: {p}")
-    if not m.get("capturas"):
-        avisos.append("sem capturas de tela — vários sites pedem 1 a 3")
+    if len(m.get("capturas") or []) < 3:
+        avisos.append("menos de 3 capturas de tela — o ideal é 3 a 5")
+    for k, txt in (("logo_horizontal", "logo horizontal (com o nome)"), ("tom_de_voz", "tom de voz"),
+                   ("cores", "cores da marca"), ("data_lancamento", "data de lançamento"),
+                   ("email_contato", "e-mail de contato público")):
+        if not m.get(k):
+            avisos.append(f"sem '{k}' ({txt}) — alguns sites pedem")
     if "orcamento_usd" not in m:
         avisos.append("sem 'orcamento_usd' — vou assumir 0 (só grátis)")
     if "aceita_selo" not in m:
@@ -193,7 +199,9 @@ def cmd_plano(a):
            "2. Nunca põe selo/link no seu site sem o seu sim para aquele site.",
            "3. Só usa textos e números da ficha (`marca/marca.json`). Nada inventado.",
            "4. Captcha, telefone, documento ou pergunta que a ficha não responde: para e te chama.",
-           "5. Depois de cada site, atualiza o rastreador (`python3 lancar.py marca ...`).", ""]
+           "5. Antes de cadastrar, procura se o produto já está no site (status `ja-listado`).",
+           "6. Grupo C: escreve o texto pronto em `trabalho/rascunhos/<id>.md`; você só publica.",
+           "7. Depois de cada site, atualiza o rastreador (`python3 lancar.py marca ...`) com o comprovante.", ""]
     plano = os.path.join(a.saida, "plano.md")
     open(plano, "w", encoding="utf-8").write("\n".join(md))
 
@@ -212,6 +220,7 @@ def cmd_plano(a):
                 w.writerow({"id": s["id"], "nome": s["nome"], "grupo": g, "forca": s.get("forca", ""),
                             "custo": s.get("custo", ""), "url_envio": s.get("url_envio") or s.get("url"),
                             "status": status, "link_listagem": r.get("link_listagem", ""),
+                            "comprovante": r.get("comprovante", ""),
                             "data": r.get("data", ""), "nota": r.get("nota", "")})
     tot = {g: len(v) for g, v in linhas.items()}
     print(f"plano: {plano}\nrastreador: {rast}")
@@ -244,6 +253,8 @@ def cmd_marca(a):
             r["status"] = a.status
             if a.link:
                 r["link_listagem"] = a.link
+            if a.comprovante:
+                r["comprovante"] = a.comprovante
             if a.nota:
                 r["nota"] = a.nota
             r["data"] = datetime.date.today().isoformat()
@@ -261,7 +272,9 @@ def cmd_status(a):
     print(" · ".join(f"{k}: {cont.get(k,0)}" for k in STATUS), f"· total {len(linhas)}")
     for r in linhas:
         if r["status"] in ("sua-vez", "aguardando-email"):
-            print(f"  [{r['status']}] {r['nome']} — {r['url_envio']}")
+            rasc = os.path.join(a.saida, "rascunhos", r["id"] + ".md")
+            extra = f" · rascunho: {rasc}" if os.path.exists(rasc) else ""
+            print(f"  [{r['status']}] {r['nome']} — {r['url_envio']}{extra}")
     return 0
 
 
@@ -318,6 +331,7 @@ def main():
     mk.add_argument("status")
     mk.add_argument("--link")
     mk.add_argument("--nota")
+    mk.add_argument("--comprovante", help="e-mail de confirmação, número do pedido ou print")
     mk.add_argument("--saida", default="trabalho")
     st = sub.add_parser("status", help="resumo do andamento")
     st.add_argument("--saida", default="trabalho")

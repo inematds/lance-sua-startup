@@ -2,13 +2,23 @@
   "nome": "<preencher>",
   "url": "https://<preencher>",
   "email_cadastro": "<preencher: e-mail só para cadastros, ex.: lancamento@suamarca.com>",
+  "email_contato": "<preencher: e-mail público de contato>",
   "tagline": "<preencher: até 60 caracteres>",
   "descricao_curta": "<preencher: até 160 caracteres>",
   "descricao_longa": "<preencher: até 1000 caracteres; o que é, para quem, o que resolve>",
+  "tom_de_voz": "<preencher: ex.: direto, sem jargão, otimista>",
+  "cores": [
+    "<preencher: ex.: #FACC15>",
+    "<preencher>"
+  ],
   "categoria": "<preencher: ex.: produtividade, IA, marketing, dev>",
-  "tags": ["<preencher>", "<preencher>"],
+  "tags": [
+    "<preencher>",
+    "<preencher>"
+  ],
   "preco": "<preencher: gratis | freemium | pago>",
   "preco_detalhe": "<preencher: ex.: grátis até 100 usos/mês; Pro R$ 49/mês>",
+  "data_lancamento": "<preencher: AAAA-MM-DD>",
   "fundador_nome": "<preencher>",
   "fundador_link": "https://<preencher: LinkedIn ou X>",
   "pais": "<preencher>",
@@ -16,11 +26,23 @@
   "idioma": "pt",
   "logo_quadrado": "logo-512.png",
   "logo_horizontal": "",
-  "capturas": ["captura-1.png"],
+  "capturas": [
+    "captura-1.png",
+    "captura-2.png",
+    "captura-3.png"
+  ],
   "video_demo": "",
-  "redes": { "x": "", "linkedin": "", "github": "", "instagram": "" },
+  "redes": {
+    "x": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
   "numeros": [
-    { "numero": "<preencher: ex.: 1.200 usuários>", "fonte": "<preencher: de onde vem — painel, planilha, data>" }
+    {
+      "numero": "<preencher: ex.: 1.200 usuários>",
+      "fonte": "<preencher: de onde vem — painel, planilha, data>"
+    }
   ],
   "orcamento_usd": 0,
   "aceita_selo": false

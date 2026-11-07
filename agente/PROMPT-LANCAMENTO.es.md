@@ -16,9 +16,15 @@ Copia todo lo que está entre las líneas `---` y pégalo en el agente.
 Vas a lanzar mi startup en sitios de lanzamiento y directorios, usando el kit de esta carpeta.
 Trabaja en 4 fases y **no te saltes ningún punto de aprobación**.
 
+**Antes que nada — revisa tus herramientas.** Fíjate si puedes abrir sitios, llenar formularios y leer mi
+casilla de correo de registro. Si algo no está disponible, dime exactamente qué y sigue con lo que se pueda
+hacer. Nunca digas que enviaste, abriste o confirmaste algo que no lograste hacer.
+
 **Fase 1 — Entrevista y ficha de la marca.**
 Copia `marca/marca.modelo.json` a `marca/marca.json` (si todavía no existe). Lee mi sitio
 (la dirección que te pase) y entrevístame, **una pregunta a la vez**, para llenar cada campo.
+Pide también: logo cuadrado y logo horizontal (con el nombre), 3 a 5 capturas de pantalla, el tono de voz, los colores,
+la fecha de lanzamiento y un correo público de contacto.
 Reglas de la ficha:
 - Pon `"idioma": "es"` en la ficha (así el plan da prioridad a los sitios de América Latina).
 - `tagline` hasta 60 caracteres; `descricao_curta` hasta 160; `descricao_longa` hasta 1000.
@@ -33,7 +39,9 @@ Cuando termines, ejecuta `python3 lancar.py checa` y corrige hasta que dé `fich
 **Punto de aprobación 1:** muéstrame la ficha completa y espera a que escriba `ficha aprobada`.
 
 **Fase 2 — Plan.**
-Ejecuta `python3 lancar.py plano`. Lee `trabalho/plano.md` y muéstrame un resumen: cuántos sitios hay en cada
+Ejecuta `python3 lancar.py plano`. Después, para cada sitio de los grupos A y B, busca si mi producto ya está listado
+(el buscador del propio sitio o `site:<dominio> <nombre del producto>`); si lo está, márcalo
+`python3 lancar.py marca <id> ja-listado --link "<dirección>"`. Lee `trabalho/plano.md` y muéstrame un resumen: cuántos sitios hay en cada
 grupo (A = lo haces tú solo, B = pide mi sí, C = mi turno, D = fuera del plan) y los 10 primeros del grupo A.
 **Punto de aprobación 2:** espera a que escriba `plan aprobado`.
 
@@ -44,8 +52,9 @@ Para cada sitio:
    Envía logo, capturas y enlaces cuando el sitio los pida.
 3. Si llega un correo de confirmación, abre la casilla de correo en la otra pestaña y haz clic en el enlace.
 4. Actualiza el rastreador:
-   `python3 lancar.py marca <id> enviado --link "<dirección del listado, si ya existe>" --nota "<qué pasó>"`
+   `python3 lancar.py marca <id> enviado --link "<dirección del listado, si ya existe>" --comprovante "<asunto del correo de confirmación, número de pedido o nombre de la captura>" --nota "<qué pasó>"`
    (usa `aguardando-email` si falta confirmar, `recusado` si el sitio lo rechazó).
+   Solo cuéntalo como **publicado** después de abrir la página publicada y ver el enlace a mi sitio.
 
 **Detente y llámame** (marca `sua-vez` con el motivo y pasa al siguiente sitio) cuando aparezca:
 - cualquier cobro, plan pago, "boost", fila paga o tarjeta — **aunque sea US$ 1**;
@@ -62,6 +71,10 @@ Para cada sitio del grupo B, muéstrame el costo o el sello pedido y espera `sí
 Al final, ejecuta `python3 lancar.py status` y entrégame:
 - cuántos sitios se enviaron, cuántos esperan correo, cuántos son mi turno (con el enlace de cada uno);
 - la lista del grupo C (Product Hunt, Hacker News y similares) con lo que tengo que hacer en cada uno.
+
+Para cada sitio del grupo C, deja listo lo que voy a publicar en `trabalho/rascunhos/<id>.md`: título, texto de la
+publicación (ej.: el "Show HN" o el primer comentario de Product Hunt), enlaces y respuestas cortas a las preguntas
+probables. Usa solo la ficha. Yo lo publico con mi cuenta.
 
 Dentro de 1 a 2 semanas, ejecuto `python3 lancar.py confere` para ver qué listados ya están publicados.
 

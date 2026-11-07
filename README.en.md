@@ -1,4 +1,4 @@
-# Launch your Startup — your product on 56 launch sites
+# Launch your Startup — your product on 59 launch sites
 
 [![Launch your Startup](guia/assets/banner-en.jpg)](https://inematds.github.io/lance-sua-startup/guia/en/)
 
@@ -7,7 +7,7 @@
 ## What it is
 
 Launch your Startup is a free kit for anyone who built an app, website or SaaS and wants it to show up on the internet.
-It brings together 56 launch sites and directories (like Product Hunt, G2 and AI directories) that send visits and
+It brings together 59 launch sites and directories (like Product Hunt, G2 and AI directories) that send visits and
 links back to your site, the so-called *backlinks*, which help with Google. A script builds the plan in the right order
 and keeps track of progress, and a ready-made prompt has your AI agent fill in the forms for you. What you need:
 Python 3, Claude Code with the Chrome extension, and an email address just for sign-ups.
@@ -20,7 +20,7 @@ Full guide (landing + step by step + table with filters): **https://inematds.git
 
 | File | What it does |
 |---|---|
-| `sites/sites.json` · `sites/sites.csv` | the 56 sites: submission link, estimated strength, cost, badge, whether it needs you, tips |
+| `sites/sites.json` · `sites/sites.csv` | the 59 sites: submission link, estimated strength, cost, badge, whether it needs you, tips |
 | `lancar.py` | `lista` (filters), `checa` (brand sheet), `plano` (4 groups + tracker), `marca`, `status`, `confere` |
 | `agente/PROMPT-LANCAMENTO.en.md` | the prompt to paste into the agent: interview → brand sheet → plan → submission, with 2 approval gates |
 | `marca/marca.modelo.json` | brand sheet template (texts, logo, numbers with a source, budget, accepts badge) |
@@ -32,7 +32,7 @@ Site prices and rules change: the `conferido_em` field says when each one was op
 
 ## The 4 groups in the plan
 
-With a budget of 0 and no badges (the example sheet), the plan today comes out as: **A = 20 · B = 0 · C = 22 · D = 14**.
+With a budget of 0 and no badges (the example sheet), the plan today comes out as: **A = 22 · B = 0 · C = 23 · D = 14**.
 
 | Group | What goes in | Who does it |
 |---|---|---|
@@ -53,11 +53,11 @@ With a budget of 0 and no badges (the example sheet), the plan today comes out a
 | 5 | Paste the prompt into the agent (in the kit folder) | contents of `agente/PROMPT-LANCAMENTO.en.md` | 🤖 agent |
 | 6 | Interview and brand sheet until `ficha OK` | `python3 lancar.py checa` | 🤖 agent + 🧠 you |
 | 7 | Gate 1 | you type `brand sheet approved` | 🧠 you |
-| 8 | Plan in 4 groups + tracker | `python3 lancar.py plano` | 🤖 agent |
+| 8 | Plan in 4 groups + tracker; checks whether it's already listed | `python3 lancar.py plano` · `marca <id> ja-listado` | 🤖 agent |
 | 9 | Gate 2 | you type `plan approved` | 🧠 you |
-| 10 | Submission site by site (group A) | `python3 lancar.py marca <id> enviado` | 🤖 agent |
+| 10 | Submission site by site (group A), with proof | `python3 lancar.py marca <id> enviado --comprovante "..."` | 🤖 agent |
 | 11 | Group B: cost or badge, one by one | you type `yes <id>` or `no <id>` | 🧠 you |
-| 12 | Group C: the launches that are yours | `python3 lancar.py status` | 🧠 you |
+| 12 | Group C: the agent leaves the text in `trabalho/rascunhos/<id>.md`, you post it | `python3 lancar.py status` | 🤖 agent + 🧠 you |
 | 13 | In 1 to 2 weeks: which listings are live | `python3 lancar.py confere` | ⚙️ script |
 
 ## Agent rules
